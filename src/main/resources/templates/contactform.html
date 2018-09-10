@@ -22,12 +22,24 @@
 			<form action="#" th:action="@{/contacto/agregarcontacto}" th:object="${contacto}" method="post">
 				<input type="hidden"  th:field="*{id}"></input>
 				Nombre: <input type="text" class="form-control" th:field="*{nombre}" th:value="${nombre}"></input>
+				<div class="alert alert-danger" th:if="${#fields.hasErrors('nombre')}">
+					<p	 th:errors="*{nombre}">	<p>
+				</div>
 				<br/>
 				Apellido: <input type="text" class="form-control" th:field="*{apellido}" th:value="${apellido}"></input>
+				<div class="alert alert-danger" th:if="${#fields.hasErrors('apellido')}">
+					<p	 th:errors="*{apellido}">	<p>
+				</div>
 				<br/>
 				Telefono: <input type="text" class="form-control" th:field="*{fono}" th:value="${fono}"></input>
+				<div class="alert alert-danger" th:if="${#fields.hasErrors('fono')}">
+					<p	 th:errors="*{fono}">	<p>
+				</div>
 				<br/>
 				Ciudad: <input type="text" class="form-control" th:field="*{ciudad}" th:value="${ciudad}"></input>
+				<div class="alert alert-danger" th:if="${#fields.hasErrors('ciudad')}">
+					<p	 th:errors="*{ciudad}">	<p>
+				</div>
 				<br/>
 				<br/>
 				<button class="btn btn-lg btn-primary btn-block" type="submit">

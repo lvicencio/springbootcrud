@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="contacto")
@@ -13,9 +15,21 @@ public class Contacto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotNull
+	@Size(min=3, max=20)
 	private String nombre;
+	
+	@NotNull
+	@Size(min=3, max=20)
 	private String apellido;
+	
+	@NotNull
+	@Size(min=3, max=20)
 	private String fono;
+	
+	@NotNull
+	@Size(min=3, max=20)
 	private String ciudad;
 	
 	public Contacto() {}
