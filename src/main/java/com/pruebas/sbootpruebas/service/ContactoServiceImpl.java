@@ -57,5 +57,15 @@ public class ContactoServiceImpl implements ContactoService {
 		return contactoRepository.getOne(id);
 	}
 
+
+	@Override
+	public List<Contacto> findByNombre(String name) {
+		// TODO Auto-generated method stub
+		return contactoRepository.findByNombreLike("%"+name+"%");
+	}
+
+
+	
+
 	
 }

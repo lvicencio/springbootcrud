@@ -12,4 +12,5 @@ public interface ContactoService {
 	void borrarContacto(Long id);
 	List<Contacto> getAll();
 	Contacto getContacto(Long id);
+	List<Contacto> findByNombre(String name);
 }

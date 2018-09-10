@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.pruebas.sbootpruebas.model.Contacto;
 import com.pruebas.sbootpruebas.service.ContactoService;
@@ -58,15 +57,16 @@ public class ContactoController {
 	}
 	
 	@GetMapping("/vercontactos")
-	public ModelAndView verContactos() {
-		ModelAndView mav = new ModelAndView("contacts");
-		mav.addObject("contactos", contactoService.getAll());
-		return mav;
+	public String verContactos(Model model, @RequestParam(defaultValue="") String name) {
+		model.addAttribute("contactos", contactoService.findByNombre(name));
+		return "contacts";
 	}
 	
+
+	
 	@GetMapping("/borrarcontacto")
-	public ModelAndView borrarcontacto(@RequestParam(name="id", required=true) int id) {
+	public String borrarcontacto(@RequestParam(name="id", required=true) int id) {
 		contactoService.borrarContacto((long) id);
-		return verContactos();
+		return "redirect:/contacto/vercontactos";
 	}
 }
