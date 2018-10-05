@@ -1,6 +1,7 @@
 package com.pruebas.sbootpruebas.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.pruebas.sbootpruebas.model.Contacto;
 
@@ -13,4 +14,5 @@ public interface ContactoService {
 	List<Contacto> getAll();
 	Contacto getContacto(Long id);
 	List<Contacto> findByNombre(String name);
+	Optional<Contacto> findById(Long id);
 }

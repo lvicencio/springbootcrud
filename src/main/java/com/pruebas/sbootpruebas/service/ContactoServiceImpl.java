@@ -1,6 +1,7 @@
 package com.pruebas.sbootpruebas.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,6 +63,13 @@ public class ContactoServiceImpl implements ContactoService {
 	public List<Contacto> findByNombre(String name) {
 		// TODO Auto-generated method stub
 		return contactoRepository.findByNombreLike("%"+name+"%");
+	}
+
+
+	@Override
+	public Optional<Contacto> findById(Long id) {
+		// TODO Auto-generated method stub
+		return contactoRepository.findById(id);
 	}
 
 
